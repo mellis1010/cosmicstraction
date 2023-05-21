@@ -1,0 +1,27 @@
+[package]
+name = "cosmic-stract"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2023"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "cosmic-stract"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[profile.release]
+overflow-checks = true
+
+[dependencies]
+anchor-lang = "0.24.2"
+anchor-spl = "0.24.2"
+spl-token = { version = "3.1.1", features = ["no-entrypoint"] }
+bs58 = "0.4.0"
+thiserror = "1.0.20"
+cosmic_util = { path = "../../cosmic-util", version = "0.1.0" }
